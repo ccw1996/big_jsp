@@ -59,14 +59,22 @@ public class Sqllink {
         return rs;
     }
 
-    public void Modify(String sql){
+    public boolean Modify(String sql){
+        int a=0;
         try{
+            Class.forName(driverName).newInstance();
             conn = DriverManager.getConnection(url);
             Statement statement=conn.createStatement();
-            statement.executeUpdate(sql);
+            a=statement.executeUpdate(sql);
         }
         catch(Exception e){
+            close();
             System.out.println(e.toString());
+            return false;
         }
+        if(a>0)
+            return true;
+        else
+            return false;
     }
 }
