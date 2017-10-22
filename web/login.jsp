@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="ccw.study.Sqllink" %>
 <jsp:useBean id="login" class="ccw.study.Login">
     <jsp:setProperty name="login" property="*"/>
 </jsp:useBean>
@@ -17,7 +18,16 @@
 <%
     String username=login.getUsername();
     String password=login.getPassword();
-
+    Sqllink sqllink=new Sqllink();
+    if(sqllink.check(username,password)){
+        out.println("登陆成功");      //todo 用js的方式弹出
+        response.sendRedirect("main.jsp");
+    }
+    else
+    {
+        out.println("登陆失败");    //todo 如上
+        response.sendRedirect("index.jsp");
+    }
 %>
 </body>
 </html>
