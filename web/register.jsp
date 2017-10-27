@@ -1,4 +1,4 @@
-<%--
+<%@ page import="ccw.study.Sqllink" %><%--
   Created by IntelliJ IDEA.
   User: caroot
   Date: 2017/10/22
@@ -25,7 +25,7 @@
         System.out.println(a);
         sqllink.Modify(a);
         out.println("   success");
-        response.sendRedirect("index.jsp");
+        response.sendRedirect("index.html");
     }catch (Exception e){
         e.printStackTrace();
     }
