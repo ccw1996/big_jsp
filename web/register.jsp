@@ -21,11 +21,20 @@
     int QQ=register.getQQ();
     String a;
     try{
-        a="insert into users(username,password,QQ) values ('"+username+"','"+password+"','"+QQ+"')";
+        if(!sqllink.check(username))
+        {a="insert into users(username,password,QQ) values ('"+username+"','"+password+"','"+QQ+"')";
         System.out.println(a);
         sqllink.Modify(a);
         out.println("   success");
-        response.sendRedirect("index.html");
+        response.sendRedirect("index.html");}
+        else
+        { %>
+            <script lanuage="javascript">
+                alert("用户名已存在！");
+                window.history.back(-1);
+            </script>
+            <%
+        }
     }catch (Exception e){
         e.printStackTrace();
     }

@@ -14,7 +14,7 @@ public class introduce extends HttpServlet {
         request.setAttribute("data",login);
         String un=request.getParameter("username");
         String pw=request.getParameter("password");
-        Sqllink sqllink=new Sqllink();
+        Sqllink sqllink=new Sqllink("users");
         if(sqllink.check(un,pw)){
             System.out.println("登陆成功");      //todo 用js的方式弹出
             response.sendRedirect("introduce.jsp");
@@ -24,6 +24,7 @@ public class introduce extends HttpServlet {
             System.out.println("登陆失败");    //todo 如上
             response.sendRedirect("index.html");
         }
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

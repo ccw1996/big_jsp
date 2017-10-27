@@ -7,20 +7,31 @@ public class Sqllink {
     private String userName="root";
     private String password="123456";
     private String dbName="stu";
-    private String tableName="users";
-    private String url="jdbc:mysql://localhost/"+dbName+"?user="+userName+"&password="+password;
+    private String tableName;
+    private String url;
 
     private ResultSet rs=null;
     private Statement stmt=null;
     private Connection conn=null;
 
-    public boolean check(String un,String pw){
+    Sqllink(String table){
+        tableName=table;
+        url="jdbc:mysql://localhost/"+dbName+"?user="+userName+"&password="+password;
+    }
+
+    public boolean check(String un,String... pw){
         try{
             Class.forName(driverName).newInstance();
             conn= DriverManager.getConnection(url);
             stmt=conn.createStatement();
-            String sql="SELECT * FROM "+tableName+" where username='"+un+"'and password='"+pw+"'";
+            String sql;
+            if(pw!=null){
+                if(pw.length==0)
+                sql="SELECT * FROM "+tableName+" where username='"+un+"'";
+            else
+                sql="SELECT * FROM "+tableName+" where username='"+un+"'and password='"+pw[0]+"'";
             rs=stmt.executeQuery(sql);
+            }
             if(rs.next()){
                 close();
                 return true;
