@@ -5,6 +5,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet(name = "/introduce")
@@ -16,6 +17,8 @@ public class introduce extends HttpServlet {
         String pw=request.getParameter("password");
         Sqllink sqllink=new Sqllink("users");
         if(sqllink.check(un,pw)){
+            HttpSession session=request.getSession();
+            session.setAttribute("username",un);
             System.out.println("登陆成功");      //todo 用js的方式弹出
             response.sendRedirect("introduce.jsp");
         }

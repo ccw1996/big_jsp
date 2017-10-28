@@ -64,10 +64,12 @@ public class Sqllink {
             conn = DriverManager.getConnection(url);
             stmt=conn.createStatement();
             rs=stmt.executeQuery(sql);
+            if(rs.next())
+                return rs;
         }catch (Exception e){
             e.printStackTrace();
         }
-        return rs;
+        return null;
     }
 
     public boolean Modify(String sql){
