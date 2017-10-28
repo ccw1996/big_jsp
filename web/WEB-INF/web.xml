@@ -11,6 +11,10 @@
         <servlet-name>ChangeSql</servlet-name>
         <servlet-class>ccw.study.ChangeSql</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UploadHandleServlet</servlet-name>
+        <servlet-class>ccw.study.UploadHandleServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>introduce</servlet-name>
         <url-pattern>/introduce</url-pattern>
@@ -18,5 +22,9 @@
     <servlet-mapping>
         <servlet-name>ChangeSql</servlet-name>
         <url-pattern>/ChangeSql</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UploadHandleServlet</servlet-name>
+        <url-pattern>/UploadHandleServlet</url-pattern>
     </servlet-mapping>
 </web-app>
