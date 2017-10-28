@@ -16,7 +16,7 @@ public class Sqllink {
 
     Sqllink(String table){
         tableName=table;
-        url="jdbc:mysql://localhost/"+dbName+"?user="+userName+"&password="+password;
+        url="jdbc:mysql://localhost/"+dbName+"?user="+userName+"&password="+password+"&useUnicode=true&characterEncoding=utf-8";
     }
 
     public boolean check(String un,String... pw){
