@@ -11,10 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.List;
 
 @WebServlet(name = "UploadHandleServlet")
@@ -22,7 +19,7 @@ public class UploadHandleServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session=request.getSession();
         String a=(String)session.getAttribute("username");
-        String savePath="D:/jsp/big/web/WEB-INF/upload/"+a;
+        String savePath="D:/jsp/big/web/netdisk/"+a;
         File file=new File(savePath);
         if(!file.exists()&&!file.isDirectory()){
             System.out.println("目录不存在");
@@ -60,7 +57,33 @@ public class UploadHandleServlet extends HttpServlet {
                     out.close();
                     item.delete();
                     System.out.println("成功");
-                }
+//                    String saveRecord=savePath+"\\record.txt";
+//                    File file2=new File(saveRecord);   // 用文件方式追加列表，但尚未添加删除功能
+//                    BufferedReader reader=null;
+//                    String temp=null;
+//                    int flag=0;
+//                    try{
+//                        reader=new BufferedReader(new FileReader(file2));
+//                        while((temp=reader.readLine())!=null){
+//                            if(temp.equals(filename))
+//                            {
+//                                flag=1;
+//                                break;
+//                            }
+//                        }
+//                        reader.close();
+//                        if(flag==0)
+//                        {
+//                            RandomAccessFile randomFile=new RandomAccessFile(file2,"rw");
+//                            long fileLength=randomFile.length();
+//                            randomFile.seek(fileLength);
+//                            randomFile.writeBytes(filename+"\r\n");
+//                            randomFile.close();
+//                        }
+//                    }catch (Exception e){
+//                        e.printStackTrace();
+//                    }
+               }
             }
         }catch (Exception e){
             System.out.println("失败");
@@ -72,4 +95,5 @@ public class UploadHandleServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request,response);
     }
+
 }

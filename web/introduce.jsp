@@ -28,7 +28,7 @@
                     <a href="#">通讯录</a> <span class="divider">/</span>
                 </li>
                 <li>
-                    <a href="upload.jsp">个人网盘</a><span class="divider"></span>
+                    <a href="ListFileServlet">个人网盘</a><span class="divider"></span>
                 </li>
             </ul>
             <h3>
