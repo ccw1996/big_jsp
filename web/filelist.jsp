@@ -42,14 +42,14 @@
     <div class="row-fluid">
         <div class="span12">
             <ul class="breadcrumb">
+                <li>
+                    <a href="introduce.jsp">主页</a><span class="divider"></span>
+                </li>
+                <li>
+                    <a href="/ContactorServlet?method=3&userId=${username }">通讯录</a> <span class="divider">/</span>
+                </li>
                 <li class="active">
-                    主页
-                </li>
-                <li>
-                    <a href="#">通讯录</a> <span class="divider">/</span>
-                </li>
-                <li>
-                    <a href="ListFileServlet">个人网盘</a><span class="divider"></span>
+                    个人网盘
                 </li>
             </ul>
             <h3>

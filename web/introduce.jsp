@@ -25,7 +25,7 @@
                     主页
                 </li>
                 <li>
-                    <a href="#">通讯录</a> <span class="divider">/</span>
+                    <a href="/ContactorServlet?method=3&userId=${username }">通讯录</a> <span class="divider">/</span>
                 </li>
                 <li>
                     <a href="ListFileServlet">个人网盘</a><span class="divider"></span>

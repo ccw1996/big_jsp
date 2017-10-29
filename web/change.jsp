@@ -27,11 +27,11 @@
                     主页
                 </li>
                 <li>
-                    <a href="#">通讯录</a> <span class="divider">/</span>
+                    <a href="/ContactorServlet?method=3&userId=${username }">通讯录</a> <span class="divider">/</span>
                 </li>
             </ul>
             <h3>
-                个人信息
+                修改个人信息
             </h3>
             <form action="ChangeSql" accept-charset="utf-8" id="login_form" class="loginForm" method="post">
             <table class="table">

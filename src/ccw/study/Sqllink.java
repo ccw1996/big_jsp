@@ -14,7 +14,7 @@ public class Sqllink {
     private Statement stmt=null;
     private Connection conn=null;
 
-    Sqllink(String table){
+    public Sqllink(String table){
         tableName=table;
         url="jdbc:mysql://localhost/"+dbName+"?user="+userName+"&password="+password+"&useUnicode=true&characterEncoding=utf-8";
     }
