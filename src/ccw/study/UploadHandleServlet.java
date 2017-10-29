@@ -89,7 +89,7 @@ public class UploadHandleServlet extends HttpServlet {
             System.out.println("失败");
             e.printStackTrace();
         }
-        response.sendRedirect("filelist.jsp");
+        response.sendRedirect("/ListFileServlet");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

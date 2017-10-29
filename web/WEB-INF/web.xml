@@ -23,6 +23,10 @@
         <servlet-name>ListFileServlet</servlet-name>
         <servlet-class>ccw.study.ListFileServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DeleteServlet</servlet-name>
+        <servlet-class>ccw.study.DeleteServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>introduce</servlet-name>
         <url-pattern>/introduce</url-pattern>
@@ -42,5 +46,9 @@
     <servlet-mapping>
         <servlet-name>ListFileServlet</servlet-name>
         <url-pattern>/ListFileServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteServlet</servlet-name>
+        <url-pattern>/DeleteServlet</url-pattern>
     </servlet-mapping>
 </web-app>

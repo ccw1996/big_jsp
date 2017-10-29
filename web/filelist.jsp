@@ -68,6 +68,12 @@
     <td>
         <a href="${downurl}">下载</a>
     </td>
+    <c:url value="/DeleteServlet" var="delurl">
+        <c:param name="filename" value="${me.key}"></c:param>
+    </c:url>
+    <td>
+        <a href="${delurl}">删除</a>
+    </td>
 </tr>
     <br/>
 </c:forEach>
