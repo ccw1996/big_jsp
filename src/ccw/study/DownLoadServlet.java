@@ -23,7 +23,7 @@ public class DownLoadServlet extends HttpServlet {
         String path=fileSaveRootPath+"\\"+fileName;
         File file=new File(path);
         if(!file.exists()){
-            System.out.println("无效资源");  //todo js提示
+            System.out.println("无效资源");
             return;
         }
         response.setHeader("content-disposition","attachment;filename=" + URLEncoder.encode(fileName, "UTF-8"));

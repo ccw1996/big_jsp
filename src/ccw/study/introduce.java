@@ -19,12 +19,12 @@ public class introduce extends HttpServlet {
         if(sqllink.check(un,pw)){
             HttpSession session=request.getSession();
             session.setAttribute("username",un);
-            System.out.println("登陆成功");      //todo 用js的方式弹出
+            System.out.println("登陆成功");
             response.sendRedirect("introduce.jsp");
         }
         else
         {
-            System.out.println("登陆失败");    //todo 如上
+            System.out.println("登陆失败");
             response.sendRedirect("index.html");
         }
 

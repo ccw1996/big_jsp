@@ -58,7 +58,7 @@ public class ContactorServlet extends HttpServlet {
         username = (String) session.getAttribute("username");
         Contactor c = CommonsUtils.toBean(request.getParameterMap(), Contactor.class);
         cs.add(c,username);
-        response.sendRedirect("/ContactorServlet?method=3&userId=${username }");
+        response.sendRedirect("/ContactorServlet?method=3&userId="+username);
     }
 
     public void loadForUpdate(HttpServletRequest request, HttpServletResponse response)
@@ -77,15 +77,17 @@ public class ContactorServlet extends HttpServlet {
         username = (String) session.getAttribute("username");
         Contactor c = CommonsUtils.toBean(request.getParameterMap(), Contactor.class);
         cs.edit(c,username);
-        response.sendRedirect("/ContactorServlet?method=3&userId=${username }");
+        response.sendRedirect("/ContactorServlet?method=3&userId="+username);
 
     }
 
     public void delete(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        username = (String) session.getAttribute("username");
         String cid = request.getParameter("id");
         int id = Integer.valueOf(cid);
         cs.delete(id);
-        response.sendRedirect("/ContactorServlet?method=3&userId=${username }");
+        response.sendRedirect("/ContactorServlet?method=3&userId="+username);
     }
 }
